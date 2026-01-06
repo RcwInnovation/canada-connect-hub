@@ -8,7 +8,9 @@ import BenefitsSection from '@/components/BenefitsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
+import PartnershipForm from '@/components/PartnershipForm';
 import Footer from '@/components/Footer';
+import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -42,9 +44,11 @@ const Index = () => {
           <BenefitsSection />
           <TestimonialsSection />
           <FAQSection />
+          <PartnershipForm />
           <CTASection />
         </main>
         <Footer />
+        <Chatbot />
       </div>
     </>
   );

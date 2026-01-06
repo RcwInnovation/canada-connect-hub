@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Target, Users, Globe } from 'lucide-react';
 
 const AboutSection = () => {
@@ -8,21 +9,37 @@ const AboutSection = () => {
       <div className="container mx-auto container-padding relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               What is <span className="text-gradient-accent">Canada One Click</span>?
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Canada One Click is one of the first optimized digital business ecosystems in Canada, designed to solve real-life needs by providing accurate information, direct connections, and verified opportunities.
             </p>
-          </div>
+          </motion.div>
 
           {/* Mission */}
-          <div className="card-elevated rounded-2xl p-8 md:p-12 mb-12">
+          <motion.div 
+            className="card-elevated rounded-2xl p-8 md:p-12 mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <div className="flex items-start gap-6">
-              <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <motion.div 
+                className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <Target className="w-7 h-7 text-primary" />
-              </div>
+              </motion.div>
               <div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-4">Our Mission</h3>
                 <p className="text-muted-foreground text-lg leading-relaxed">
@@ -30,29 +47,51 @@ const AboutSection = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="card-elevated rounded-xl p-6 group hover:border-primary/50 transition-all duration-300">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <motion.div 
+              className="card-elevated rounded-xl p-6 group hover:border-primary/50 transition-all duration-300"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -5 }}
+            >
+              <motion.div 
+                className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <Users className="w-6 h-6 text-accent" />
-              </div>
+              </motion.div>
               <h4 className="text-lg font-semibold mb-2">Real Connections</h4>
               <p className="text-muted-foreground">
                 Connect directly with verified businesses, professionals, and opportunities without intermediaries.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="card-elevated rounded-xl p-6 group hover:border-primary/50 transition-all duration-300">
-              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <motion.div 
+              className="card-elevated rounded-xl p-6 group hover:border-primary/50 transition-all duration-300"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -5 }}
+            >
+              <motion.div 
+                className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <Globe className="w-6 h-6 text-primary" />
-              </div>
+              </motion.div>
               <h4 className="text-lg font-semibold mb-2">Canadian Focus</h4>
               <p className="text-muted-foreground">
                 Built specifically for the Canadian market with a primary focus on Calgary and expanding nationwide.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

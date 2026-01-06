@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionContent,
@@ -30,12 +31,18 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section id="faq" className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 network-bg opacity-30" />
       
       <div className="container mx-auto container-padding relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
             FAQ
           </span>
@@ -45,27 +52,40 @@ const FAQSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to know about Canada One Click.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
+        <motion.div 
+          className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
+              <motion.div
                 key={index}
-                value={`item-${index}`}
-                className="card-elevated rounded-xl px-6 border-border/50 data-[state=open]:border-primary/50 transition-colors"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 * index }}
               >
-                <AccordionTrigger className="text-left hover:no-underline py-5 text-foreground font-medium">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="card-elevated rounded-xl px-6 border-border/50 data-[state=open]:border-primary/50 transition-colors"
+                >
+                  <AccordionTrigger className="text-left hover:no-underline py-5 text-foreground font-medium">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
