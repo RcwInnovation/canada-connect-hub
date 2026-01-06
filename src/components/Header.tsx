@@ -32,11 +32,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg'
-          : 'bg-white/90 backdrop-blur-md'
-      }`}
+      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white shadow-md border-b border-gray-100"
     >
       <div className="container mx-auto container-padding">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -55,7 +51,7 @@ const Header = () => {
               <motion.a
                 key={item.label}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors relative"
+                className="px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary transition-colors relative"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
@@ -79,7 +75,7 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button variant="ghost" size="sm" className="text-gray-700 hover:text-primary hover:bg-gray-100">
+              <Button variant="outline" size="sm" className="text-gray-800 border-gray-300 hover:bg-gray-50">
                 Login
               </Button>
             </motion.div>
@@ -98,7 +94,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="lg:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-gray-800"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -110,7 +106,7 @@ const Header = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-xl border-b border-gray-200 shadow-lg"
+              className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -121,7 +117,7 @@ const Header = () => {
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    className="block py-3 text-gray-700 hover:text-primary transition-colors"
+                    className="block py-3 text-gray-800 font-medium hover:text-primary transition-colors border-b border-gray-100 last:border-b-0"
                     onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -131,7 +127,7 @@ const Header = () => {
                   </motion.a>
                 ))}
                 <div className="flex gap-3 mt-4 pt-4 border-t border-gray-200">
-                  <Button variant="ghost" size="sm" className="flex-1 text-gray-700 hover:bg-gray-100">
+                  <Button variant="outline" size="sm" className="flex-1 text-gray-800 border-gray-300 hover:bg-gray-50">
                     Login
                   </Button>
                   <Button variant="cta" size="sm" className="flex-1">
