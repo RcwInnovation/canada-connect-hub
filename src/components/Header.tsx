@@ -5,12 +5,10 @@ import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
 
 const navItems = [
+  { label: 'About', href: '#about' },
+  { label: 'Modules', href: '#modules' },
   { label: 'Services', href: '#services' },
-  { label: 'Events', href: '#modules' },
-  { label: 'Jobs', href: '#modules' },
-  { label: 'Investments', href: '#modules' },
-  { label: 'Restaurants', href: '#modules' },
-  { label: 'Networking', href: '#modules' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Partners', href: '#partnership' },
 ];
 
@@ -75,7 +73,7 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button variant="outline" size="sm" className="text-gray-800 border-gray-300 hover:bg-gray-50">
+              <Button variant="cta" size="sm" className="bg-primary text-white hover:bg-primary/90">
                 Login
               </Button>
             </motion.div>
@@ -127,7 +125,7 @@ const Header = () => {
                   </motion.a>
                 ))}
                 <div className="flex gap-3 mt-4 pt-4 border-t border-gray-200">
-                  <Button variant="outline" size="sm" className="flex-1 text-gray-800 border-gray-300 hover:bg-gray-50">
+                  <Button variant="cta" size="sm" className="flex-1 bg-primary text-white hover:bg-primary/90">
                     Login
                   </Button>
                   <Button variant="cta" size="sm" className="flex-1">
