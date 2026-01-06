@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
@@ -24,6 +25,28 @@ const testimonials = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  },
+};
+
 const TestimonialsSection = () => {
   return (
     <section className="section-padding bg-gradient-dark relative overflow-hidden">
@@ -31,7 +54,13 @@ const TestimonialsSection = () => {
       
       <div className="container mx-auto container-padding relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
             Testimonials
           </span>
@@ -41,19 +70,31 @@ const TestimonialsSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             See what our community members are saying about their experience.
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
+        <motion.div 
+          className="grid md:grid-cols-3 gap-6 md:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {testimonials.map((testimonial) => (
+            <motion.div
               key={testimonial.name}
+              variants={cardVariants}
               className="card-elevated rounded-2xl p-6 md:p-8 group hover:border-primary/50 transition-all duration-300"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               {/* Quote Icon */}
-              <div className="mb-6">
+              <motion.div 
+                className="mb-6"
+                initial={{ rotate: 0 }}
+                whileHover={{ rotate: 10, scale: 1.1 }}
+              >
                 <Quote className="w-10 h-10 text-primary/30" />
-              </div>
+              </motion.div>
 
               {/* Content */}
               <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -63,25 +104,34 @@ const TestimonialsSection = () => {
               {/* Rating */}
               <div className="flex items-center gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i }}
+                  >
+                    <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  </motion.div>
                 ))}
               </div>
 
               {/* Author */}
               <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <img
+                <motion.img
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover ring-2 ring-border"
+                  whileHover={{ scale: 1.1 }}
                 />
                 <div>
                   <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
