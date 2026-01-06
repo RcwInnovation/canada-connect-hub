@@ -9,7 +9,6 @@ import { useToast } from '@/hooks/use-toast';
 const PartnershipForm = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     companyName: '',
     contactName: '',
@@ -27,19 +26,38 @@ const PartnershipForm = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const recipient = 'ceo@rcwinnovation.com';
+    const subject = encodeURIComponent(`Partnership Request from ${formData.companyName}`);
+    const body = encodeURIComponent(
+`Partnership Application - Canada One Click
+
+COMPANY INFORMATION
+--------------------
+Company/Organization: ${formData.companyName}
+Contact Person: ${formData.contactName}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Website: ${formData.website || 'Not provided'}
+Partnership Type: ${formData.partnershipType}
+
+MESSAGE
+--------------------
+${formData.message}
+
+---
+Sent via Canada One Click Partnership Form`
+    );
     
-    setIsLoading(false);
+    window.open(`mailto:${recipient}?subject=${subject}&body=${body}`, '_blank');
+    
     setIsSubmitted(true);
     
     toast({
-      title: "Partnership Request Submitted!",
-      description: "We'll review your application and get back to you within 48 hours.",
+      title: "Email Client Opened!",
+      description: "Please send the email from your email client to complete the submission.",
     });
   };
 
@@ -225,26 +243,15 @@ const PartnershipForm = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
             <div className="mt-8 text-center">
               <Button 
                 type="submit" 
                 variant="cta" 
                 size="lg" 
-                disabled={isLoading}
                 className="min-w-[200px]"
               >
-                {isLoading ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    Submit Application
-                    <Send className="ml-2 w-4 h-4" />
-                  </>
-                )}
+                Submit Application
+                <Send className="ml-2 w-4 h-4" />
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
                 By submitting this form, you agree to our terms and privacy policy.
