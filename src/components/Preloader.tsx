@@ -11,7 +11,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   const phrases = ['One Platform', 'One Solution', 'One Click'];
 
   useEffect(() => {
-    const timers: NodeJS.Timeout[] = [];
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
     // Phase 1 - "One Platform"
     const timer1 = setTimeout(() => setCurrentPhase(1), 200);
