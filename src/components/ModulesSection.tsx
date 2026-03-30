@@ -18,8 +18,6 @@ import {
   GraduationCap,
   Scale,
   HeartHandshake,
-  ChevronDown,
-  ExternalLink,
 } from 'lucide-react';
 
 import moduleServices from '@/assets/module-services.jpg';
