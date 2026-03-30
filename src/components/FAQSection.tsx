@@ -15,6 +15,11 @@ const faqs = [
     icon: '🆓',
   },
   {
+    question: 'What plans are available for businesses?',
+    answer: `We offer three plans designed for every stage of your business:\n\n**🟢 Plan Basic ($14.99/mo or $149/yr)** — Ideal for small businesses. Includes 1 photo, name/address/phone (NAP), link to 3 social networks, and basic business category.\n\n**🔵 Plan Standard ($34.99/mo or $349/yr)** — For growing businesses. Includes 2 photos, everything in Basic plus a direct website link (valuable backlink), detailed business hours, and WhatsApp/Call button.\n\n**🟡 Plan Premium ($59.99–$79.99/mo or $599/yr)** — Maximum impact. Includes 3 photos, everything in Standard plus "Verified Business" badge, priority positioning in your category, and unlimited job postings or a special coupon per month.`,
+    icon: '💼',
+  },
+  {
     question: 'Can I list my business?',
     answer: 'Absolutely! Business owners can create a professional profile to showcase their services. Our platform offers various listing tiers, from basic free listings to premium packages with enhanced visibility and features.',
     icon: '🏢',
