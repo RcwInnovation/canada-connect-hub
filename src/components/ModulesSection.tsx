@@ -13,6 +13,13 @@ import {
   Handshake,
   ChevronDown,
   ExternalLink,
+  Globe,
+  Landmark,
+  GraduationCap,
+  Scale,
+  HeartHandshake,
+  ChevronDown,
+  ExternalLink,
 } from 'lucide-react';
 
 import moduleServices from '@/assets/module-services.jpg';
