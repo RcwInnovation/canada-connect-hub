@@ -13,6 +13,11 @@ import {
   Handshake,
   ChevronDown,
   ExternalLink,
+  Globe,
+  Landmark,
+  GraduationCap,
+  Scale,
+  HeartHandshake,
 } from 'lucide-react';
 
 import moduleServices from '@/assets/module-services.jpg';
@@ -25,6 +30,11 @@ import moduleRentals from '@/assets/module-rentals.jpg';
 import moduleInvestments from '@/assets/module-investments.jpg';
 import moduleDonations from '@/assets/module-donations.jpg';
 import modulePartners from '@/assets/module-partners.jpg';
+import moduleCommunities from '@/assets/module-communities.jpg';
+import moduleGovernment from '@/assets/module-government.jpg';
+import moduleEducation from '@/assets/module-education.jpg';
+import moduleLegal from '@/assets/module-legal.jpg';
+import moduleNgos from '@/assets/module-ngos.jpg';
 
 const modules = [
   {
@@ -135,6 +145,61 @@ const modules = [
     details: {
       features: ['Exclusive discounts', 'Partner resources', 'Special programs', 'VIP access'],
       benefits: 'Access exclusive benefits and resources from our trusted network of strategic partners.',
+    },
+  },
+  {
+    icon: Globe,
+    title: 'Communities',
+    description: 'Connect with vibrant multicultural communities — Latin American, African, Asian, and more.',
+    color: 'bg-sky-500/20 text-sky-400',
+    image: moduleCommunities,
+    details: {
+      features: ['Cultural groups', 'Community forums', 'Language exchange', 'Social events'],
+      benefits: 'Find your community and build meaningful connections with people who share your background.',
+    },
+  },
+  {
+    icon: Landmark,
+    title: 'Government & Entities',
+    description: 'Access resources from government agencies, consulates, and public institutions.',
+    color: 'bg-slate-500/20 text-slate-400',
+    image: moduleGovernment,
+    details: {
+      features: ['Consular services', 'Public programs', 'Immigration info', 'Civic resources'],
+      benefits: 'Navigate government services and access institutional support for newcomers and residents.',
+    },
+  },
+  {
+    icon: GraduationCap,
+    title: 'Education',
+    description: 'Language courses, certifications, workshops, and academic programs.',
+    color: 'bg-teal-500/20 text-teal-400',
+    image: moduleEducation,
+    details: {
+      features: ['Language courses', 'Certifications', 'Workshops', 'University programs'],
+      benefits: 'Advance your career with education and training resources tailored for your needs.',
+    },
+  },
+  {
+    icon: Scale,
+    title: 'Legal & Immigration',
+    description: 'Find verified immigration consultants, lawyers, and legal resources.',
+    color: 'bg-red-500/20 text-red-400',
+    image: moduleLegal,
+    details: {
+      features: ['Immigration lawyers', 'Legal consultants', 'Document help', 'Status tracking'],
+      benefits: 'Navigate your immigration journey with trusted legal professionals and resources.',
+    },
+  },
+  {
+    icon: HeartHandshake,
+    title: 'NGOs & Non-Profits',
+    description: 'Organizations dedicated to immigrant support, social services, and community development.',
+    color: 'bg-violet-500/20 text-violet-400',
+    image: moduleNgos,
+    details: {
+      features: ['Settlement services', 'Food banks', 'Mental health', 'Family support'],
+      benefits: 'Connect with organizations that provide essential support services for newcomers.',
     },
   },
 ];
