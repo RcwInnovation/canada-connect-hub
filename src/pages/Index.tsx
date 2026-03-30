@@ -11,6 +11,7 @@ import CTASection from '@/components/CTASection';
 import PartnershipForm from '@/components/PartnershipForm';
 import VolunteerForm from '@/components/VolunteerForm';
 import ComingSoonProvinces from '@/components/ComingSoonProvinces';
+import EcosystemSection from '@/components/EcosystemSection';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 
@@ -44,6 +45,7 @@ const Index = () => {
           <AboutSection />
           <ModulesSection />
           <BenefitsSection />
+          <EcosystemSection />
           <ComingSoonProvinces />
           <TestimonialsSection />
           <VolunteerForm />
