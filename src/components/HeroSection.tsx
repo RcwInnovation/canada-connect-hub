@@ -46,8 +46,8 @@ const HeroSection = () => {
             transition={{ duration: 1, ease: 'easeOut' }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-        <div className="absolute inset-0 bg-gradient-hero" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-hero opacity-80" />
       </div>
 
       {/* Slider Controls */}
