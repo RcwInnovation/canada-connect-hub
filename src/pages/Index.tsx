@@ -45,6 +45,7 @@ const Index = () => {
           <AboutSection />
           <ModulesSection />
           <BenefitsSection />
+          <EcosystemSection />
           <ComingSoonProvinces />
           <TestimonialsSection />
           <VolunteerForm />
