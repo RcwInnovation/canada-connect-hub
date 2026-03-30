@@ -8,7 +8,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Modules', href: '#modules' },
   { label: 'Ecosystem', href: '#ecosystem' },
-  { label: 'Volunteers', href: '#volunteers' },
+  { label: 'Volunteers', href: '#volunteer' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Partners', href: '#partnership' },
 ];
