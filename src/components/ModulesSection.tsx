@@ -30,6 +30,11 @@ import moduleRentals from '@/assets/module-rentals.jpg';
 import moduleInvestments from '@/assets/module-investments.jpg';
 import moduleDonations from '@/assets/module-donations.jpg';
 import modulePartners from '@/assets/module-partners.jpg';
+import moduleCommunities from '@/assets/module-communities.jpg';
+import moduleGovernment from '@/assets/module-government.jpg';
+import moduleEducation from '@/assets/module-education.jpg';
+import moduleLegal from '@/assets/module-legal.jpg';
+import moduleNgos from '@/assets/module-ngos.jpg';
 
 const modules = [
   {
