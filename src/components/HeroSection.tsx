@@ -39,15 +39,15 @@ const HeroSection = () => {
             key={current}
             src={slides[current].src}
             alt={slides[current].alt}
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover"
             initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.4, scale: 1 }}
+            animate={{ opacity: 0.7, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-        <div className="absolute inset-0 bg-gradient-hero" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-hero opacity-80" />
       </div>
 
       {/* Slider Controls */}
