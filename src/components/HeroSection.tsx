@@ -1,23 +1,83 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-calgary.jpg';
+
+import sliderCalgary from '@/assets/slider-calgary-skyline.jpg';
+import sliderBanff from '@/assets/slider-banff.jpg';
+import sliderCommunity from '@/assets/slider-community.jpg';
+import sliderBusiness from '@/assets/slider-business.jpg';
+import sliderCulture from '@/assets/slider-culture.jpg';
+import sliderTech from '@/assets/slider-tech.jpg';
+
+const slides = [
+  { src: sliderCalgary, alt: 'Calgary Skyline', caption: 'Calgary, Alberta' },
+  { src: sliderBanff, alt: 'Banff National Park', caption: 'Natural Beauty' },
+  { src: sliderCommunity, alt: 'Community Networking', caption: 'Community' },
+  { src: sliderBusiness, alt: 'Business District', caption: 'Opportunities' },
+  { src: sliderCulture, alt: 'Calgary Stampede', caption: 'Culture' },
+  { src: sliderTech, alt: 'Innovation Hub', caption: 'Innovation' },
+];
 
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + slides.length) % slides.length), []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image */}
+      {/* Background Slider */}
       <div className="absolute inset-0 z-0">
-        <motion.img
-          src={heroImage}
-          alt="Calgary skyline with digital connections"
-          className="w-full h-full object-cover opacity-40"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-        />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current}
+            src={slides[current].src}
+            alt={slides[current].alt}
+            className="w-full h-full object-cover opacity-40"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 0.4, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
         <div className="absolute inset-0 bg-gradient-hero" />
+      </div>
+
+      {/* Slider Controls */}
+      <button
+        onClick={prev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-background/50 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-background/80 transition-colors"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-background/50 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-background/80 transition-colors"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Slider Dots */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2.5 h-2.5 rounded-full transition-all ${
+              i === current ? 'bg-accent w-8' : 'bg-muted-foreground/40 hover:bg-muted-foreground/60'
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
 
       {/* Network effect overlay */}

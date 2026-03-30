@@ -9,6 +9,8 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import PartnershipForm from '@/components/PartnershipForm';
+import VolunteerForm from '@/components/VolunteerForm';
+import ComingSoonProvinces from '@/components/ComingSoonProvinces';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 
@@ -17,7 +19,6 @@ const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Check if we should skip preloader (for development)
     const params = new URLSearchParams(window.location.search);
     if (params.get('skip') === 'true') {
       setShowPreloader(false);
@@ -29,6 +30,7 @@ const Index = () => {
     setShowPreloader(false);
     setTimeout(() => setIsLoaded(true), 100);
   };
+
   return (
     <>
       {showPreloader && (
@@ -42,7 +44,9 @@ const Index = () => {
           <AboutSection />
           <ModulesSection />
           <BenefitsSection />
+          <ComingSoonProvinces />
           <TestimonialsSection />
+          <VolunteerForm />
           <FAQSection />
           <PartnershipForm />
           <CTASection />
