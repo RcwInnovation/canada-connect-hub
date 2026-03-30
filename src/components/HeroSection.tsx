@@ -39,7 +39,7 @@ const HeroSection = () => {
             key={current}
             src={slides[current].src}
             alt={slides[current].alt}
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover"
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 0.4, scale: 1 }}
             exit={{ opacity: 0 }}
