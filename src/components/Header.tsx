@@ -74,8 +74,8 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button variant="cta" size="sm" className="bg-primary text-white hover:bg-primary/90">
-                Login
+              <Button variant="cta" size="sm" className="bg-primary text-white hover:bg-primary/90" asChild>
+                <a href="https://canada-connects-hub.lovable.app/login" target="_blank" rel="noopener noreferrer">Login</a>
               </Button>
             </motion.div>
             <motion.div
@@ -85,8 +85,8 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button variant="cta" size="sm">
-                Register
+              <Button variant="cta" size="sm" asChild>
+                <a href="https://canada-connects-hub.lovable.app/signup" target="_blank" rel="noopener noreferrer">Register</a>
               </Button>
             </motion.div>
           </div>
@@ -126,11 +126,11 @@ const Header = () => {
                   </motion.a>
                 ))}
                 <div className="flex gap-3 mt-4 pt-4 border-t border-gray-200">
-                  <Button variant="cta" size="sm" className="flex-1 bg-primary text-white hover:bg-primary/90">
-                    Login
+                  <Button variant="cta" size="sm" className="flex-1 bg-primary text-white hover:bg-primary/90" asChild>
+                    <a href="https://canada-connects-hub.lovable.app/login" target="_blank" rel="noopener noreferrer">Login</a>
                   </Button>
-                  <Button variant="cta" size="sm" className="flex-1">
-                    Register
+                  <Button variant="cta" size="sm" className="flex-1" asChild>
+                    <a href="https://canada-connects-hub.lovable.app/signup" target="_blank" rel="noopener noreferrer">Register</a>
                   </Button>
                 </div>
               </nav>

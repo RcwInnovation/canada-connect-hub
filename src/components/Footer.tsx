@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Instagram, Linkedin } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-footer.png';
 
 // Custom TikTok icon since lucide doesn't have it
 const TikTokIcon = () => (
@@ -142,7 +142,9 @@ const Footer = () => {
                 Ready to explore opportunities in Canada?
               </p>
               <a
-                href="#cta"
+                href="https://canada-connects-hub.lovable.app/signup"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center text-accent hover:text-accent/80 font-medium text-sm transition-colors"
               >
                 Create your free account →
