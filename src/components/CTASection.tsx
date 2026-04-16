@@ -81,15 +81,19 @@ const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="cta" size="xl" className="group">
-                Register Now
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Button variant="cta" size="xl" className="group" asChild>
+                <a href="https://canada-connects-hub.lovable.app/signup" target="_blank" rel="noopener noreferrer">
+                  Register Now
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="outline" size="xl" className="border-border hover:bg-secondary">
-                <LogIn className="mr-2 w-5 h-5" />
-                Login
+              <Button variant="outline" size="xl" className="border-border hover:bg-secondary" asChild>
+                <a href="https://canada-connects-hub.lovable.app/login" target="_blank" rel="noopener noreferrer">
+                  <LogIn className="mr-2 w-5 h-5" />
+                  Login
+                </a>
               </Button>
             </motion.div>
           </motion.div>
