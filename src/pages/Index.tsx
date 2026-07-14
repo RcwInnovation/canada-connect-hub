@@ -14,6 +14,7 @@ import ComingSoonProvinces from '@/components/ComingSoonProvinces';
 import EcosystemSection from '@/components/EcosystemSection';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
+import InstallPWAButton from '@/components/InstallPWAButton';
 
 const Index = () => {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -55,6 +56,7 @@ const Index = () => {
         </main>
         <Footer />
         <Chatbot />
+        <InstallPWAButton />
       </div>
     </>
   );
