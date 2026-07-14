@@ -152,8 +152,10 @@ const InstallPWAButton = () => {
               </span>
               <div className="flex-1 text-sm">
                 Toca el botón <Share className="inline w-4 h-4 mx-1" />{' '}
-                <strong>Compartir</strong> en la barra inferior de Safari.
+                <strong>Compartir</strong> (en iPhone está en la barra inferior;
+                en iPad en la esquina superior derecha).
               </div>
+
             </li>
             <li className="flex items-start gap-3">
               <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
