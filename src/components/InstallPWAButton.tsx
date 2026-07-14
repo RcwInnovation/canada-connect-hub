@@ -15,10 +15,20 @@ type BeforeInstallPromptEvent = Event & {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 };
 
-const isIOS = () =>
-  typeof navigator !== 'undefined' &&
-  /iphone|ipad|ipod/i.test(navigator.userAgent) &&
-  !/crios|fxios|edgios/i.test(navigator.userAgent);
+const isIOS = () => {
+  if (typeof navigator === 'undefined') return false;
+  const ua = navigator.userAgent;
+  // Exclude non-Safari iOS browsers (they cannot Add to Home Screen the same way)
+  if (/crios|fxios|edgios|opios/i.test(ua)) return false;
+  const iOSDevice = /iphone|ipad|ipod/i.test(ua);
+  // iPadOS 13+ reports as Mac; detect via touch points
+  const iPadOS =
+    /Macintosh/.test(ua) &&
+    typeof navigator.maxTouchPoints === 'number' &&
+    navigator.maxTouchPoints > 1;
+  return iOSDevice || iPadOS;
+};
+
 
 const isStandalone = () =>
   typeof window !== 'undefined' &&
@@ -130,9 +140,11 @@ const InstallPWAButton = () => {
           <DialogHeader>
             <DialogTitle>Instalar en iPhone / iPad</DialogTitle>
             <DialogDescription>
-              Sigue estos pasos en Safari para agregar la app a tu pantalla de inicio.
+              Debes abrir esta página en <strong>Safari</strong> (no funciona en
+              Chrome, Firefox ni desde otra app). Luego sigue estos pasos.
             </DialogDescription>
           </DialogHeader>
+
           <ol className="space-y-4 mt-2">
             <li className="flex items-start gap-3">
               <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
@@ -140,8 +152,10 @@ const InstallPWAButton = () => {
               </span>
               <div className="flex-1 text-sm">
                 Toca el botón <Share className="inline w-4 h-4 mx-1" />{' '}
-                <strong>Compartir</strong> en la barra inferior de Safari.
+                <strong>Compartir</strong> (en iPhone está en la barra inferior;
+                en iPad en la esquina superior derecha).
               </div>
+
             </li>
             <li className="flex items-start gap-3">
               <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
