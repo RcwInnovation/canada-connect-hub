@@ -15,10 +15,20 @@ type BeforeInstallPromptEvent = Event & {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 };
 
-const isIOS = () =>
-  typeof navigator !== 'undefined' &&
-  /iphone|ipad|ipod/i.test(navigator.userAgent) &&
-  !/crios|fxios|edgios/i.test(navigator.userAgent);
+const isIOS = () => {
+  if (typeof navigator === 'undefined') return false;
+  const ua = navigator.userAgent;
+  // Exclude non-Safari iOS browsers (they cannot Add to Home Screen the same way)
+  if (/crios|fxios|edgios|opios/i.test(ua)) return false;
+  const iOSDevice = /iphone|ipad|ipod/i.test(ua);
+  // iPadOS 13+ reports as Mac; detect via touch points
+  const iPadOS =
+    /Macintosh/.test(ua) &&
+    typeof navigator.maxTouchPoints === 'number' &&
+    navigator.maxTouchPoints > 1;
+  return iOSDevice || iPadOS;
+};
+
 
 const isStandalone = () =>
   typeof window !== 'undefined' &&
