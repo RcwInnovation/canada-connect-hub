@@ -140,9 +140,11 @@ const InstallPWAButton = () => {
           <DialogHeader>
             <DialogTitle>Instalar en iPhone / iPad</DialogTitle>
             <DialogDescription>
-              Sigue estos pasos en Safari para agregar la app a tu pantalla de inicio.
+              Debes abrir esta página en <strong>Safari</strong> (no funciona en
+              Chrome, Firefox ni desde otra app). Luego sigue estos pasos.
             </DialogDescription>
           </DialogHeader>
+
           <ol className="space-y-4 mt-2">
             <li className="flex items-start gap-3">
               <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
