@@ -57,6 +57,7 @@ const Index = () => {
         </main>
         <Footer />
         <Chatbot />
+        <FloatingActions />
         <InstallPWAButton />
       </div>
     </>
