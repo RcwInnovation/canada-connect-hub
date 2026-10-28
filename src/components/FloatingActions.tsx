@@ -61,7 +61,7 @@ const FloatingActions = () => {
     if (action.chat) {
       window.dispatchEvent(new CustomEvent('coc-open-chat'));
     }
-    if (!action.external) setOpen(false);
+    setOpen(false);
   };
 
   return (
