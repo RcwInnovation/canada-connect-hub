@@ -14,6 +14,7 @@ import ComingSoonProvinces from '@/components/ComingSoonProvinces';
 import EcosystemSection from '@/components/EcosystemSection';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
+import FloatingActions from '@/components/FloatingActions';
 import InstallPWAButton from '@/components/InstallPWAButton';
 
 const Index = () => {
@@ -56,6 +57,7 @@ const Index = () => {
         </main>
         <Footer />
         <Chatbot />
+        <FloatingActions />
         <InstallPWAButton />
       </div>
     </>

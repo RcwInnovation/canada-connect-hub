@@ -71,6 +71,14 @@ const InstallPWAButton = () => {
     };
   }, []);
 
+  // Let the floating menu know when the banner is on screen so it can shift up.
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('coc-pwa-banner', { detail: visible }));
+    return () => {
+      window.dispatchEvent(new CustomEvent('coc-pwa-banner', { detail: false }));
+    };
+  }, [visible]);
+
   if (installed || !visible) return null;
 
   const handleInstall = async () => {

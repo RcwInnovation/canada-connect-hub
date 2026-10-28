@@ -114,6 +114,13 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Open the chat when the mobile floating menu triggers it.
+  useEffect(() => {
+    const openChat = () => setIsOpen(true);
+    window.addEventListener('coc-open-chat', openChat);
+    return () => window.removeEventListener('coc-open-chat', openChat);
+  }, []);
+
   const handleSend = async () => {
     if (!inputValue.trim()) return;
 
